@@ -1,32 +1,45 @@
 security:
     enable_authenticator_manager: true
+    # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
-        App\Entity\Admin:
-            algorithm: auto
-
+    # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
-        admin:
+        app_user_provider:
             entity:
-                class: App\Entity\Admin
+                class: App\Users\Domain\Entity\User
                 property: email
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-        admin:
-            pattern: ^/admin
-            provider: admin
-            form_login:
-                login_path: /admin/login
-                check_path: /admin/login
-                default_target_path: /admin
-                always_use_default_target_path: true
-            logout:
-                path: /admin/logout
-                target: /admin/login
+        login:
+            pattern: ^/api/auth/token/login
+            stateless: true
+            json_login:
+                username_path: email
+                check_path: /api/auth/token/login
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        api_token_refresh:
+            pattern: ^/api/auth/token/refresh
+            stateless: true
+            refresh_jwt: ~
+
+        api:
+            pattern: ^/api
+            stateless: true
+            jwt: ~
 
     access_control:
-        - { path: ^/admin/login, roles: !php/const Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter::PUBLIC_ACCESS }
-        - { path: ^/admin, roles: !php/const App\Enum\AdminRoleEnum::ROLE_ADMIN }
-        - { path: ^/backofficeapi/auth/login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/auth/token/login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/auth/token/refresh, roles: PUBLIC_ACCESS }
+        - { path: ^/api/users/me,       roles: IS_AUTHENTICATED_FULLY }
+
+when@test:
+    security:
+        password_hashers:
+            # By default, password hashers are resource intensive and take time. This is
+            # important to generate secure password hashes. In tests however, secure hashes
+            # are not important, waste resources and increase test times. The following
+            # reduces the work factor to the lowest possible values.
+            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+                algorithm: plaintext
