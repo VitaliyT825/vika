@@ -1,10 +1,33 @@
-
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
 /.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
-/var/
+
+/var/*
+/var/log/*
+!/var/log
+!/var/log/.gitkeep
+/var/cache/*
+!/var/cache
+!/var/cache/.gitkeep
+
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> jetbrains/idea ###
+/.idea/
+###< jetbrains/idea ###
+
+/docker/.data
+/auth.json
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/.php_cs.cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
