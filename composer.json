@@ -1,0 +1,120 @@
+{
+    "type": "project",
+    "name": "marfatech/plumber",
+    "description": "Plumber - service for external integrations",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.0.2",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "adrenalinkin/doctrine-naming-strategy": "^1.1",
+        "doctrine/doctrine-migrations-bundle": "^3.1",
+        "easycorp/easyadmin-bundle": "^3.5",
+        "gedmo/doctrine-extensions": "^3.1",
+        "giggsey/libphonenumber-for-php": "^8.12",
+        "graylog2/gelf-php": "^1.7",
+        "guzzlehttp/guzzle": "^7.3",
+        "marfatech/api-platform-bundle": "^3.0",
+        "marfatech/dbal-bundle": "^3.0",
+        "marfatech/dbal-enum-type-bundle": "^2.0",
+        "marfatech/enumer-bundle": "^2.0",
+        "marfatech/metric-bundle": "^3.0",
+        "marfatech/orm-id-generator": "^2.0",
+        "marfatech/rabbit-queue-bundle": "^3.0.0",
+        "mybuilder/cronos-bundle": "^3.1",
+        "nelmio/api-doc-bundle": "^3.10",
+        "predis/predis": "^2.0",
+        "smi2/phpclickhouse": "^1.4",
+        "spomky-labs/otphp": "^10.0",
+        "stof/doctrine-extensions-bundle": "^1.6",
+        "symfony/asset": "5.3.*",
+        "symfony/console": "5.3.*",
+        "symfony/dotenv": "5.3.*",
+        "symfony/flex": "^1.3.1",
+        "symfony/framework-bundle": "5.3.*",
+        "symfony/monolog-bundle": "^3.7",
+        "symfony/proxy-manager-bridge": "5.3.*",
+        "symfony/runtime": "5.3.*",
+        "symfony/twig-bundle": "5.3.*",
+        "symfony/yaml": "5.3.*",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/twig": "^2.12|^3.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.18",
+        "hautelook/alice-bundle": "^2.9",
+        "jetbrains/phpstorm-stubs": "dev-master",
+        "psalm/phar": "^4.10",
+        "roave/security-advisories": "dev-latest",
+        "squizlabs/php_codesniffer": "^3.6"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.wake-app.net"
+        }
+    ],
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true,
+        "http-basic": {
+            "github.com": {
+                "username": "deployer-marfa",
+                "password": "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"
+            },
+            "satis.wake-app.net": {
+                "username": "captain",
+                "password": "123456"
+            }
+        },
+        "bitbucket-oauth": {
+            "bitbucket.org": {
+                "consumer-key": "NqvFVmtqHRZ7u3LZSq",
+                "consumer-secret": "u7hUBj47aV6KG86MmwmdWuam6FgdhfcB"
+            }
+        },
+        "allow-plugins": {
+            "symfony/flex": true,
+            "symfony/runtime": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.3.*"
+        }
+    }
+}

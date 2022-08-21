@@ -1,0 +1,12 @@
+framework:
+    cache:
+        pools:
+            oauth.cache:
+                adapter: app.cache.adapter.redis
+                provider: '%env(REDIS_DSN)%/3'
+            auth.cache:
+                adapter: app.cache.adapter.redis
+                provider: '%env(REDIS_DSN)%/3'
+            app.cache:
+                adapter: app.cache.adapter.redis
+                provider: '%env(REDIS_DSN)%/3'

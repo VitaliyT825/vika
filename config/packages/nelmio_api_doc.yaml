@@ -1,0 +1,12 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Plumber API
+            description: Plumber API
+            version: 1.0.0
+    areas:
+        default:
+            host_patterns:
+                - '^.*'
+            path_patterns:
+                - '^/api'

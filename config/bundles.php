@@ -1,0 +1,25 @@
+<?php
+
+return [
+    Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
+    Nelmio\ApiDocBundle\NelmioApiDocBundle::class => ['all' => true],
+    Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
+    Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
+    Symfony\Bundle\MonologBundle\MonologBundle::class => ['all' => true],
+    Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class => ['all' => true],
+    Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
+    Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
+    EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle::class => ['all' => true],
+    Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle::class => ['all' => true],
+    Nelmio\Alice\Bridge\Symfony\NelmioAliceBundle::class => ['dev' => true, 'test' => true],
+    Fidry\AliceDataFixtures\Bridge\Symfony\FidryAliceDataFixturesBundle::class => ['dev' => true, 'test' => true],
+    Hautelook\AliceBundle\HautelookAliceBundle::class => ['dev' => true, 'test' => true],
+    MarfaTech\Bundle\RabbitQueueBundle\MarfatechRabbitQueueBundle::class => ['all' => true],
+    MarfaTech\Bundle\ApiPlatformBundle\MarfaTechApiPlatformBundle::class => ['all' => true],
+    MarfaTech\Bundle\DbalBundle\MarfaTechDbalBundle::class => ['all' => true],
+    MarfaTech\Bundle\DbalEnumTypeBundle\MarfaTechDbalEnumTypeBundle::class => ['all' => true],
+    MarfaTech\Bundle\EnumerBundle\MarfaTechEnumerBundle::class => ['all' => true],
+    Linkin\Bundle\SwaggerResolverBundle\LinkinSwaggerResolverBundle::class => ['all' => true],
+    MyBuilder\Bundle\CronosBundle\MyBuilderCronosBundle::class => ['all' => true],
+    MarfaTech\Bundle\MetricBundle\MarfaTechMetricBundle::class => ['all' => true],
+];

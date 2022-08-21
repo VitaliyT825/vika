@@ -1,0 +1,55 @@
+doctrine:
+    dbal:
+        default_connection: !php/const App\Enum\DoctrineConnectionEnum::DEFAULT
+        connections:
+            !php/const App\Enum\DoctrineConnectionEnum::DEFAULT:
+                driver: 'pdo_mysql'
+                server_version: '8.0'
+                charset: utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collate: utf8mb4_unicode_ci
+                host: '%env(resolve:MYSQL_HOST)%'
+                user: '%env(resolve:MYSQL_USER)%'
+                password: '%env(resolve:MYSQL_PASSWORD)%'
+                dbname: '%env(resolve:MYSQL_DATABASE)%'
+                port: 3306
+                url: '%env(resolve:DATABASE_URL)%'
+                mapping_types:
+                    enum: string
+            !php/const App\Enum\DoctrineConnectionEnum::BIREPORT:
+                driver: 'pdo_mysql'
+                server_version: '8.0'
+                charset: utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collate: utf8mb4_unicode_ci
+                url: '%env(resolve:DATABASE_BIREPORT_URL)%'
+            !php/const App\Enum\DoctrineConnectionEnum::ARAMUZ:
+                driver: 'pdo_mysql'
+                server_version: '8.0'
+                charset: utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collate: utf8mb4_unicode_ci
+                url: '%env(resolve:DATABASE_ARAMUZ_URL)%'
+            !php/const App\Enum\DoctrineConnectionEnum::TEST:
+                driver: 'pdo_mysql'
+                server_version: '8.0'
+                charset: utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collate: utf8mb4_unicode_ci
+                url: '%env(resolve:DATABASE_ARAMUZ_URL)%'
+
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: Linkin\Component\DoctrineNamingStrategy\ORM\Mapping\CamelCaseNamingStrategy
+        auto_mapping: true
+        mappings:
+            App:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: 'App\Entity'
+                alias: App

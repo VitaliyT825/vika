@@ -1,0 +1,50 @@
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    click_house_database: '%env(string:CLICKHOUSE_DATABASE)%'
+    click_house_username: '%env(string:CLICKHOUSE_USER)%'
+    click_house_password: '%env(string:CLICKHOUSE_PASSWORD)%'
+    click_house_host: '%env(string:CLICKHOUSE_HOST)%'
+    click_house_port: 8123
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    app.cache.adapter.redis:
+        parent: cache.adapter.redis
+        tags:
+            - { name: 'cache.pool', namespace: '%env(string:PROJECT_NAME)%' }
+
+    Linkin\Component\DoctrineNamingStrategy\ORM\Mapping\CamelCaseNamingStrategy:
+        arguments: ~
+
+    app.factory.click_house_client:
+        class: ClickHouseDB\Client
+        factory:
+            - App\Factory\ClickHouseConnectionFactory
+            - create
+        arguments:
+            - '%click_house_database%'
+            - '%click_house_username%'
+            - '%click_house_password%'
+            - '%click_house_host%'
+            - '%click_house_port%'
+
+    App\Manager\ClickHouseManager:
+        arguments:
+            - '@app.factory.click_house_client'
