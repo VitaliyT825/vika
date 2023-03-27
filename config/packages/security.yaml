@@ -27,5 +27,6 @@ security:
                 target: /admin/login
 
     access_control:
-         - { path: ^/admin/login, roles: !php/const Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter::PUBLIC_ACCESS }
-         - { path: ^/admin, roles: !php/const App\Enum\AdminRoleEnum::ROLE_ADMIN }
+        - { path: ^/admin/login, roles: !php/const Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter::PUBLIC_ACCESS }
+        - { path: ^/admin, roles: !php/const App\Enum\AdminRoleEnum::ROLE_ADMIN }
+        - { path: ^/backofficeapi/auth/login, roles: PUBLIC_ACCESS }

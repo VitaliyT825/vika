@@ -1,0 +1,8 @@
+App\Entity\Admin:
+    admin:
+        email: admin@yandex.ru
+        password: <{adminPassword}>
+        roles:
+            - <(App\Enum\AdminRoleEnum::ROLE_ADMIN)>
+        createdAt: '<(new DateTime())>'
+        updatedAt: '<($createdAt)>'

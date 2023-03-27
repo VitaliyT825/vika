@@ -6,39 +6,42 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^8.0.2",
+        "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "adrenalinkin/doctrine-naming-strategy": "^1.1",
         "doctrine/doctrine-migrations-bundle": "^3.1",
-        "easycorp/easyadmin-bundle": "^3.5",
+        "easycorp/easyadmin-bundle": "^4.5",
         "gedmo/doctrine-extensions": "^3.1",
         "giggsey/libphonenumber-for-php": "^8.12",
         "graylog2/gelf-php": "^1.7",
         "guzzlehttp/guzzle": "^7.3",
         "marfatech/api-platform-bundle": "^3.0",
         "marfatech/dbal-bundle": "^3.0",
+        "marfatech/dbal-enum-type": "^2.0",
         "marfatech/dbal-enum-type-bundle": "^2.0",
         "marfatech/enumer-bundle": "^2.0",
         "marfatech/metric-bundle": "^3.0",
         "marfatech/orm-id-generator": "^2.0",
         "marfatech/rabbit-queue-bundle": "^3.0.0",
+        "marfatech/swagger-resolver-bundle": "^0.5.1",
         "mybuilder/cronos-bundle": "^3.1",
         "nelmio/api-doc-bundle": "^3.10",
         "predis/predis": "^2.0",
         "smi2/phpclickhouse": "^1.4",
         "spomky-labs/otphp": "^10.0",
         "stof/doctrine-extensions-bundle": "^1.6",
-        "symfony/asset": "5.3.*",
-        "symfony/console": "5.3.*",
-        "symfony/dotenv": "5.3.*",
+        "symfony/asset": "5.4.*",
+        "symfony/console": "5.4.*",
+        "symfony/dotenv": "5.4.*",
+        "symfony/expression-language": "5.4.*",
         "symfony/flex": "^1.3.1",
-        "symfony/framework-bundle": "5.3.*",
+        "symfony/framework-bundle": "5.4.*",
         "symfony/monolog-bundle": "^3.7",
-        "symfony/proxy-manager-bridge": "5.3.*",
-        "symfony/runtime": "5.3.*",
-        "symfony/twig-bundle": "5.3.*",
-        "symfony/yaml": "5.3.*",
+        "symfony/proxy-manager-bridge": "5.4.*",
+        "symfony/runtime": "5.4.*",
+        "symfony/twig-bundle": "5.4.*",
+        "symfony/yaml": "5.4.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
     },
@@ -100,6 +103,8 @@
     },
     "scripts": {
         "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
@@ -114,7 +119,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "5.3.*"
+            "require": "5.4.*"
         }
     }
 }

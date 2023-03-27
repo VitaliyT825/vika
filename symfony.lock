@@ -14,9 +14,6 @@
     "behat/transliterator": {
         "version": "v1.3.0"
     },
-    "composer/package-versions-deprecated": {
-        "version": "1.11.99.4"
-    },
     "composer/semver": {
         "version": "3.2.5"
     },
@@ -256,9 +253,6 @@
             "config/packages/nelmio_api_doc.yaml",
             "config/routes/nelmio_api_doc.yaml"
         ]
-    },
-    "nikic/php-parser": {
-        "version": "v4.13.0"
     },
     "paragonie/constant_time_encoding": {
         "version": "v2.4.0"
@@ -602,6 +596,18 @@
     },
     "symfony/uid": {
         "version": "v5.3.3"
+    },
+    "symfony/validator": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.3",
+            "ref": "c32cfd98f714894c4f128bb99aa2530c1227603c"
+        },
+        "files": [
+            "config/packages/validator.yaml"
+        ]
     },
     "symfony/var-dumper": {
         "version": "v5.3.7"

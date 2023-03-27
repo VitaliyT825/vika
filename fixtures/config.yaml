@@ -1,0 +1,5 @@
+include:
+    - Admin.yaml
+
+parameters:
+    adminPassword: $argon2id$v=19$m=65536,t=4,p=1$3IIHKPHJVoCbcC6G26o+ag$aMssITH+dcY9UBQFJMba2cbI0fvwrVfuD3wVfkMhj70 #jG49fgkxr

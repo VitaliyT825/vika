@@ -1,4 +1,4 @@
 easyadmin:
-    resource: '../../src/Admin/Controller/'
+    resource: '../../src/Admin/'
     prefix: /admin
     type: annotation
