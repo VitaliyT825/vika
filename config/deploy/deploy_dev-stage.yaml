@@ -1,8 +1,8 @@
 -
     name:           DEV-STAGE deployment script
     hosts:          dev-stage
-    remote_user:    deployer
-    become_user:    deployer
+    remote_user:    a96872_izg
+    become_user:    a96872_izg
     gather_facts:   false
 
     roles:
