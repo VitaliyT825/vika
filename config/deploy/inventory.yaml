@@ -3,8 +3,8 @@ webservers:
         dev-stage:
             ansible_ssh_host: a96872.ftp.mchost.ru
             ansible_user: a96872_izg
-            ansible_password: 1111111
-            study_deploy_to: /home/deployerdev/www/plumber
+            study_deploy_to: /home/httpd/vhosts/xn----8sbedmigdd8cap8ade2f1d.xn--p1ai/httpdocs
+            ansible_remote_tmp: /home/httpd/vhosts/xn----8sbedmigdd8cap8ade2f1d.xn--p1ai/httpdocs
     vars:
         marfatech_git_repo:           'git@github.com:VitaliyT825/study.git'
         marfatech_project_name:       study
