@@ -1,0 +1,4 @@
+---
+-
+    name: '{{ marfatech_deploy_from_branch }} | Create .env.local.php'
+    command: '{{ symfony_composer_path }} --working-dir={{ ansistrano_release_path.stdout }} dump-env {{ symfony_env }}'

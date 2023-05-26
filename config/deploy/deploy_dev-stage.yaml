@@ -10,16 +10,17 @@
 
     vars:
         # custom
-        marfatech_deploy_from_branch:       '{{ branch }}'
-        marfatech_release_console_path:     '{{ ansistrano_release_path.stdout }}/{{symfony_console_path}}'
+        deploy_from_branch:       '{{ branch }}'
+        release_console_path:     '{{ ansistrano_release_path.stdout }}/{{symfony_console_path}}'
 
         # ansistrano
-        ansistrano_git_repo:                '{{ marfatech_git_repo }}'
-        ansistrano_deploy_via:              git
+        ansistrano_git_repo:                '{{ git_repo }}'
+        ansistrano_deploy_via:              copy
         ansistrano_current_dir:             current
         ansistrano_allow_anonymous_stats:   false
+        ansistrano_deploy_from:             '{{ playbook_dir }}/../..'
         ansistrano_deploy_to:               '{{ study_deploy_to }}'
-        ansistrano_git_branch:              '{{ marfatech_deploy_from_branch }}'
+        ansistrano_git_branch:              '{{ deploy_from_branch }}'
         ansistrano_keep_releases:           5
         ansistrano_shared_paths:
             - 'var/log'
@@ -41,5 +42,5 @@
         symfony_composer_version:           2.0.9
 
         # hooks
-#        ansistrano_before_symlink_shared_tasks_file: '{{ playbook_dir }}/hook_dev-stage/before-symlink-shared-tasks-file.yaml'
-#        ansistrano_after_symlink_tasks_file: '{{ playbook_dir }}/hook_dev-stage/after-symlink-tasks-file.yaml'
+        ansistrano_before_symlink_shared_tasks_file: '{{ playbook_dir }}/hook_dev-stage/before-symlink-shared-tasks-file.yaml'
+        ansistrano_after_symlink_tasks_file: '{{ playbook_dir }}/hook_dev-stage/after-symlink-tasks-file.yaml'

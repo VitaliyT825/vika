@@ -30,11 +30,11 @@ services:
         container_name: ${PROJECT_NAME}_php
         build:
             context: ./..
-            dockerfile: ./docker/php-fpm/Dockerfile
-            target: plumber-image
+            dockerfile: docker/php/Dockerfile
             args:
-                PROJECT_NAME: ${PROJECT_NAME}
-                APP_ENV: ${APP_ENV}
+                PHP_CS_FIXER_IGNORE_ENV: ${PHP_CS_FIXER_IGNORE_ENV}
+        environment:
+            - xdebug=true
         working_dir: /app
         ports:
             - 9000:9000

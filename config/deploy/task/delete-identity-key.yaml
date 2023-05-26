@@ -1,0 +1,6 @@
+---
+-
+    name: Remove shreded deploy priv key
+    file:
+        dest: "{{ ansistrano_deploy_to }}/git_identity_key"
+        state: absent

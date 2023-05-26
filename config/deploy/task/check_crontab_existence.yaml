@@ -1,0 +1,4 @@
+---
+-
+  name: '{{ marfatech_deploy_from_branch }} | Checking for existing crontab'
+  command: 'crontab -l'

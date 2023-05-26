@@ -1,0 +1,4 @@
+---
+-
+  name: '{{ marfatech_deploy_from_branch }} | Send slack notification'
+  command: '{{ marfatech_release_console_path }} deploy:send-slack-notification {{ansible_ssh_host}} {{ marfatech_deploy_from_branch }}'
