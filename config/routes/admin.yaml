@@ -1,4 +1,0 @@
-easyadmin:
-    resource: '../../src/Admin/'
-    prefix: /admin
-    type: annotation

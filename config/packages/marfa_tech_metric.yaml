@@ -1,8 +1,0 @@
-marfa_tech_metric:
-    connections:
-        wakeapp_db:
-            driver: influx
-            database_name: wakeapp_db
-            protocol: udp
-            host: '%env(resolve:INFLUX_HOST)%'
-            port: 4444

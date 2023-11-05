@@ -1,4 +1,0 @@
----
--
-    name: '{{ marfatech_deploy_from_branch }} | Clear opcache'
-    shell: 'php /usr/local/bin/cachetool.phar opcache:reset'

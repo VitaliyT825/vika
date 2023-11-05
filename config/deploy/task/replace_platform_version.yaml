@@ -1,8 +1,0 @@
----
--
-    name: 'Set PLATFORM_VERSION to dotenv file'
-    shell: >
-        sed -i "s/^PLATFORM_VERSION\s*=.*/PLATFORM_VERSION=\'$({{symfony_composer_path}} show wakeapp/api-mobile-bundle
-        | awk '/versions/ {print $4}')\'/g" {{ ansistrano_release_path.stdout }}/../../shared/.env.local
-    args:
-        chdir: '{{ ansistrano_release_path.stdout }}'

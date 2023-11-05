@@ -1,4 +1,0 @@
----
--
-    name: '{{ marfatech_deploy_from_branch }} | Reload supervisor'
-    shell: 'supervisorctl reload'

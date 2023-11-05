@@ -1,8 +1,0 @@
----
-- import_tasks: '../task/replace_app_version.yaml'
-- import_tasks: '../task/replace_platform_version.yaml'
-- import_tasks: '../task/create_dotenv_local_php.yaml'
-- import_tasks: '../task/delete-identity-key.yaml'
-- import_tasks: '../task/rabbit_definition_update.yaml'
-- import_tasks: '../task/supervisor_reload.yaml'
-- import_tasks: '../task/slack_deploy_notification.yaml'

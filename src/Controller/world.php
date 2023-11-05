@@ -24,9 +24,8 @@ class world extends AbstractController
 {
     public function __invoke(Connection $connection): Response
     {
-        $connection->
         $number = random_int(0, 100);
-
+dd(1234);
         return new Response('<html><body>Lucky number: '.$number.'</body></html>');
     }
 }
