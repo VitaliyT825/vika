@@ -16,14 +16,14 @@
     # ansistrano
     ansistrano_git_repo:                '{{ git_repo }}'
     ansistrano_deploy_via:              copy
-#    ansistrano_current_dir:             current
+    ansistrano_current_dir:             current
     ansistrano_allow_anonymous_stats:   false
     ansistrano_deploy_from:             '{{ playbook_dir }}/../..'
     ansistrano_deploy_to:               '{{ study_deploy_to }}'
     ansistrano_git_branch:              '{{ deploy_from_branch }}'
     ansistrano_keep_releases:           5
-#    ansistrano_shared_paths:
-#      - 'var/log'
+    ansistrano_shared_paths:
+      - 'var'
 #      - 'public/images'
 #      - 'storage'
 #      - 'parameters'
