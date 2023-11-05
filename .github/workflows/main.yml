@@ -13,7 +13,7 @@ jobs:
       # Setup key
       - run: set -eu
       - run: mkdir "$HOME/.ssh"
-      - run: echo "$" > "$HOME/.ssh/key"
-      - run: chmod 600 "$HOME/.ssh/key"
+      - run: echo "$" > "$HOME/.ssh/authorized_keys"
+      - run: chmod 600 "$HOME/.ssh/authorized_keys"
       # Deploy
       - run: rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@45.12.238.189:/var/www/symfony
