@@ -1,0 +1,10 @@
+webservers:
+  hosts:
+    dev-stage:
+      ansible_ssh_host: 45.12.238.189
+      ansible_user: root
+      study_deploy_to: /var/www/symfony
+      ansible_remote_tmp: /var/www/symfony
+  vars:
+    git_repo:           'git@github.com:VitaliyT825/vika.git'
+    project_name:       vika
