@@ -1,0 +1,17 @@
+import: 
+  - recipe/symfony.php
+
+config:
+  repository: 'git@github.com:VitaliyT825/vika.git'
+
+hosts:
+  45.12.238.189:
+    remote_user: root
+    deploy_path: '~/symfony'
+
+tasks:
+  build:
+    - run: uptime  
+
+after:
+  deploy:failed: deploy:unlock
