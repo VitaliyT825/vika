@@ -7,10 +7,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Table(name="Product")
  * @ORM\Entity()
- * @ORM\Table()
  */
-//#[ORM\Entity, ORM\Table()]
 class Product extends AbstractEntity
 {
     /**
@@ -18,7 +17,7 @@ class Product extends AbstractEntity
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", nullable=false)
@@ -30,24 +29,24 @@ class Product extends AbstractEntity
      */
     private string $info;
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId($id): void
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
 
-    public function getName(): string
+    public function getProductName(): string
     {
-        return $this->name;
+        return $this->productName;
     }
 
-    public function setName(string $name): void
+    public function setProductName(string $productName): void
     {
-        $this->name = $name;
+        $this->productName = $productName;
     }
 
     public function getInfo(): string
@@ -59,11 +58,4 @@ class Product extends AbstractEntity
     {
         $this->info = $info;
     }
-
-//    public static function loadMetadata(ClassMetadata $metadata)
-//    {
-//        $builder = new ClassMetadataBuilder($metadata);
-//        $builder->createField('id', 'integer')->isPrimaryKey()->generatedValue()->build();
-//        $builder->addField('username', 'string');
-//    }
 }
