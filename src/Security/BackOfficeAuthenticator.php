@@ -31,8 +31,8 @@ class BackOfficeAuthenticator extends AbstractAuthenticator
     }
 
     public function supports(Request $request): bool
-    {
-        return $request->headers->has('X-Auth-Token');
+    {;
+        return true;
     }
 
     /**
