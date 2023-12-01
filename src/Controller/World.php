@@ -20,12 +20,12 @@ use Symfony\Component\Routing\Annotation\Route;
  *     description="Ok",
  * )
  */
-class world extends AbstractController
+class World extends AbstractController
 {
-    public function __invoke(Connection $connection): Response
+    public function __invoke(): Response
     {
         $number = random_int(2, 100);
 
-        return new Response('<html><body>Lucky number: '.$number.'</body></html>');
+        return new Response('<html><body>Lucky number: ' . $number . '</body></html>');
     }
 }

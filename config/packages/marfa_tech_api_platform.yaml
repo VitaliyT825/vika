@@ -1,0 +1,4 @@
+marfa_tech_api_platform:
+    api_result_dto_class: MarfaTech\Bundle\ApiPlatformBundle\Dto\ApiResultDto
+    api_area_guesser_service: App\Guesser\ApiAreaGuesser
+    response_debug: true
