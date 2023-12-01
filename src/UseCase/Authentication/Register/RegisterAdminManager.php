@@ -24,7 +24,7 @@ class RegisterAdminManager extends AbstractManager
             ->setParameter('email', $email)
         ;
 
-        return $queryBuilder->executeQuery()->fetchOne()?: null;
+        return (string) $queryBuilder->executeQuery()->fetchOne() ?: null;
     }
 
     /**

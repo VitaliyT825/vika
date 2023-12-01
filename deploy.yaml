@@ -7,7 +7,7 @@ config:
 hosts:
   45.12.238.189:
     remote_user: root
-    deploy_path: '~/symfony'
+    deploy_path: '/var/www/symfony'
 
 tasks:
   build:
