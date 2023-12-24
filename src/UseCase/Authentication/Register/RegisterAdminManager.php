@@ -49,7 +49,7 @@ class RegisterAdminManager extends AbstractManager
         return $conn->lastInsertId('BackOfficeAdmin');
     }
 
-    public function createToken(string $adminId, string $token, DateTime $expireDate)
+    public function createToken(string $adminId, string $token, DateTime $expireDate): void
     {
         $now = (new DateTime())->format('Y-m-d H:i:s');
 

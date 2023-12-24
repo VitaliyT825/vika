@@ -10,26 +10,20 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
+        backofficeapi_public:
+            pattern: ^/backofficeapi/(login|register)
+            security: false
+
         backofficeapi:
             pattern: ^/backofficeapi
             security: true
-            stateless: false
+            stateless: true
             provider: backofficeapi
             logout: ~
             custom_authenticators:
                 - App\Security\BackOfficeAuthenticator
-            form_login:
-                login_path: app_login
-                check_path: app_login
 
-            # activate different ways to authenticate
-            # https://symfony.com/doc/current/security.html#the-firewall
-
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
-
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/backofficeapi/register, roles: PUBLIC_ACCESS }
          - { path: ^/backofficeapi/login, roles: PUBLIC_ACCESS }

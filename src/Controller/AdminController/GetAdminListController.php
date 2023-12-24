@@ -16,6 +16,7 @@ use OpenApi\Annotations as OA;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Throwable;
 
 /**
  * @OA\Tag(name="Admin")
@@ -34,7 +35,7 @@ use Symfony\Component\Routing\Annotation\Route;
  *     @Model(type=RegisterAdminResultDto::class)
  * )
  */
-class CreateAdminController extends AbstractController
+class GetAdminListController extends AbstractController
 {
     /**
      * @throws AdminAlreadyExistException
@@ -46,6 +47,8 @@ class CreateAdminController extends AbstractController
             $resultDto = $handler->handle($entryDto);
         } catch (AdminAlreadyExistException) {
             throw new BackOfficeApiException(BackOfficeApiException::ADMIN_ALREADY_EXIST);
+        } catch (Throwable $e) {
+            throw $e;
         }
 
         return new ApiResponse($resultDto);
