@@ -7,11 +7,13 @@ namespace App\UseCase\Authentication\Login;
 use App\Dto\BackofficeAdminDto;
 use App\UseCase\AbstractManager;
 use DateTime;
-use Doctrine\DBAL\Exception;
+use Doctrine\DBAL\Exception as DbalException;
+use Exception;
 
 class LoginManager extends AbstractManager
 {
     /**
+     * @throws DbalException
      * @throws Exception
      */
     public function findAdminByEmail(string $email): ?BackofficeAdminDto
@@ -42,8 +44,8 @@ class LoginManager extends AbstractManager
                 name: $row['name'],
                 email: $row['email'],
                 password: $row['password'],
-                createdAt: $row['createdAt'],
-                updatedAt: $row['updatedAt'],
+                createdAt: new DateTime($row['createdAt']),
+                updatedAt: new DateTime($row['updatedAt']),
                 roles: $row['roles'],
             );
         }
@@ -52,7 +54,7 @@ class LoginManager extends AbstractManager
     }
 
     /**
-     * @throws Exception
+     * @throws DbalException
      */
     public function createToken(string $adminId, string $token, DateTime $expireDate): void
     {

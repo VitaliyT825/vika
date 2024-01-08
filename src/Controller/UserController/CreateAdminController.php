@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\AdminController;
+namespace App\Controller\UserController;
 
 use App\Exception\AdminAlreadyExistException;
 use App\Exception\BackOfficeApiException;
@@ -37,7 +37,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CreateAdminController extends AbstractController
 {
     /**
-     * @throws AdminAlreadyExistException
+     * @return Response
      * @throws Exception
      */
     public function __invoke(RegisterAdminEntryDto $entryDto, RegisterAdminHandler $handler): Response
