@@ -34,17 +34,22 @@ class BackofficeAdminManager
                                 boa.name,
                                 boa.email,
                                 boa.password,
-                                boa.roles,
                                 boa.createdAt,
-                                boa.updatedAt
+                                boa.updatedAt,
+                                boa.roles,
+                                bot.token
                             )',
                     BackofficeAdminDto::class
                 )
             )
             ->from(BackOfficeAdmin::class, 'boa')
+            ->join(BackOfficeToken::class, 'bot', Join::WITH, 'boa.id = bot.backOfficeAdmin')
             ->where('boa.email = :email')
+            ->andWhere('bot.expiredAt > :now')
             ->andWhere('boa.deletedAt IS NULL')
             ->setParameter('email', $email)
+            ->setParameter('now', (new DateTime())->format('Y-m-d H:i:s'))
+            ->setMaxResults(1);
         ;
 
         return $queryBuilder->getQuery()->getOneOrNullResult();
@@ -65,9 +70,9 @@ class BackofficeAdminManager
                                 boa.name,
                                 boa.email,
                                 boa.password,
-                                boa.roles,
                                 boa.createdAt,
                                 boa.updatedAt,
+                                boa.roles,
                                 bot.token
                             )',
                     BackofficeAdminDto::class

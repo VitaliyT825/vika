@@ -11,7 +11,7 @@ use OpenApi\Annotations as OA;
 /**
  * @OA\Schema(
  *     type="object",
- *     description="Entry dto fro admin login",
+ *     description="Entry dto for user login",
  *     required={"email", "password"},
  * )
  */

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\AdminController;
+namespace App\Controller\UserController;
 
 use App\Exception\BackOfficeApiException;
 use App\Exception\InvalidPasswordException;
@@ -20,7 +20,7 @@ use Throwable;
 class LoginController extends AbstractController
 {
     /**
-     * @Route(name="admin_login", path="/login", methods={"POST"})
+     * @Route(name="user_login", path="/login", methods={"POST"})
      *
      * @OA\RequestBody(
      *     description="request body",
